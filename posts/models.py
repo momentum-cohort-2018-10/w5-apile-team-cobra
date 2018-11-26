@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Post(models.Model):
+    '''
+    post model
+    '''
+    title = models.CharField(max_length=255)
+    post_link = models.URLField(max_lenth=255)
+    
