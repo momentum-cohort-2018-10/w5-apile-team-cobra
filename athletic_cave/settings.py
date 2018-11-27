@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 ACCOUNT_ACTIVATION_DAYS = 7
-EMAIL_BACKEND = 'testing@example.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFUALT_FROM_EMAIL = 'testing@example.com'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
