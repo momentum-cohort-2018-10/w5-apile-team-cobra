@@ -6,4 +6,9 @@
 
 {% block content %}
     <h1>hello</h1>
+    <div>
+        {% for post in posts %}
+            <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
+        {% endfor %}
+    </div>
 {% endblock content %}

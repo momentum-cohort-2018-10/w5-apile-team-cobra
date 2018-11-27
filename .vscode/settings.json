@@ -1,3 +1,10 @@
 {
-    "python.pythonPath": "/Users/cornbuster/.local/share/virtualenvs/w5-apile-team-cobra-_NZww2HV/bin/python"
+    "python.pythonPath": "/Users/cornbuster/.local/share/virtualenvs/w4-freeshelf-dacs2010-De_D4yDU/bin/python",
+    "html.format.enable": true,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
 }
