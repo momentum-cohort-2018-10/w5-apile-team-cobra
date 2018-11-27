@@ -6,8 +6,8 @@ def index(request):
     '''
     render posts on home page
     '''
+
     posts = Post.objects.all()
-    
     return render(request, 'index.html', {
         'posts': posts,
     })
