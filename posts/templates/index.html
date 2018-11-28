@@ -5,12 +5,17 @@
 {% endblock title %}
 
 {% block content %}
-    <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
-    <h1>Athetic Cave</h1>
+    <div>
+        <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
+        <h1>Athetic Cave</h1>
+    </div>
+   
+
     <div>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
             <button>vote</button>
         {% endfor %}
     </div>
+
 {% endblock content %}

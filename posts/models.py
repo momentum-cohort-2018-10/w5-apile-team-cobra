@@ -7,7 +7,10 @@ class Post(models.Model):
     '''
     title = models.CharField(max_length=255)
     post_link = models.URLField(max_length=255)
+    user = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=True)
     user_has_voted = models.ManyToManyField(to=User, through='Vote', related_name='user_voted')
+
+
 
 
 # to = User, through = Vote, related_name = 'user_voted'
@@ -16,12 +19,12 @@ class Vote(models.Model):
     vote on posts
     '''
     voter = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="vote")
-    post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(to=Post, on_delete=models.SET_NULL, null=True)
     score = models.IntegerField(default=0)
 
 
 class Comment(models.Model):
     '''
-    adds coments to posts
+    adds coments to post
     '''
     pass
