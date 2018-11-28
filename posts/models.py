@@ -20,15 +20,11 @@ class Vote(models.Model):
     score = models.IntegerField(default=0)
 
 
-# class Comment(models.Model):
-#     '''
-#     adds coments to posts
-#     '''
-#     post = models.ForeignKey(Post, related_name='comments')
-# 	user = models.CharField(max_length=255)
-# 	email = models.EmailField()
-# 	body = models.TextField()
-# 	created = models.DateTimeField(auto_now_add=True)
-	
-# 	def __str__(self):
-# 		return self.user
+class Comment(models.Model):
+    '''
+    adds coments to posts
+    '''
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
