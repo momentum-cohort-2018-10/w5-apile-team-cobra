@@ -12,14 +12,13 @@ class Post(models.Model):
     score = models.IntegerField(default=0)
 
 
-# to = User, through = Vote, related_name = 'user_voted'
 class Vote(models.Model):
     '''
-    vote on posts
+    vote on post
     '''
     voter = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="vote")
     post = models.ForeignKey(to=Post, on_delete=models.SET_NULL, null=True)
-    
+
 
 class Comment(models.Model):
     '''
