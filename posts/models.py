@@ -20,8 +20,15 @@ class Vote(models.Model):
     score = models.IntegerField(default=0)
 
 
-class Comment(models.Model):
-    '''
-    adds coments to posts
-    '''
-    pass
+# class Comment(models.Model):
+#     '''
+#     adds coments to posts
+#     '''
+#     post = models.ForeignKey(Post, related_name='comments')
+# 	user = models.CharField(max_length=255)
+# 	email = models.EmailField()
+# 	body = models.TextField()
+# 	created = models.DateTimeField(auto_now_add=True)
+	
+# 	def __str__(self):
+# 		return self.user
