@@ -5,12 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-    <div>
-        <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
-        <h1>Athetic Cave</h1>
-    </div>
-    
-
+    <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
+    <h1>Athletic Cave</h1>
     <div>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>

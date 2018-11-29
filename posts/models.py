@@ -11,6 +11,9 @@ class Post(models.Model):
     user_has_voted = models.ManyToManyField(to=User, through='Vote', related_name='user_vote')
     score = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class Vote(models.Model):
     '''
@@ -28,3 +31,6 @@ class Comment(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user
