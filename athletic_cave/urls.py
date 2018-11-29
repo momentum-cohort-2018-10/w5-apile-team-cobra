@@ -31,6 +31,9 @@ urlpatterns = [
             template_name='registration/password_reset_complete.html'),
         name="password_reset_complete"),
 
+    # vote url
+    path('posts/<post.id>/vote', views.user_vote, name="user_vote"),
+
     # index url
     path('', views.index, name='home'),
 
