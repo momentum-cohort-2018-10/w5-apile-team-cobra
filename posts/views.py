@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from posts.models import Post, Vote
+from posts.models import Post, Vote, Comment
 
 # Create your views here.
 def index(request):
@@ -11,3 +11,10 @@ def index(request):
     return render(request, 'index.html', {
         'posts': posts,
     })
+
+def comment_detail(request, id):
+    """
+    This shows all the comments
+    """
+    comments = Comment.objects.get(id=id)
+    return render(request, 'comment/comment_detail.html', {'comments': comments})

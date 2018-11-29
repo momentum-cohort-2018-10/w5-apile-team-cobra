@@ -28,6 +28,8 @@ urlpatterns = [
         PasswordResetCompleteView.as_view(
             template_name='registration/password_reset_complete.html'),
         name="password_reset_complete"),
+        # comment url
+    path('comments/<int:id>', views.comment_detail, name='comment_detail'),
 
     # index url
     path('', views.index, name='home'),
