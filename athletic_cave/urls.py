@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.urls import path, include
 from posts import views
 from django.contrib.auth.views import ( 
-	PasswordResetView, PasswordResetDoneView, 
-	PasswordResetConfirmView, PasswordResetCompleteView,)
+    PasswordResetView, 
+    PasswordResetDoneView, 
+	PasswordResetConfirmView, 
+    PasswordResetCompleteView,)
 from django.conf import settings
 
 
@@ -24,7 +26,7 @@ urlpatterns = [
         PasswordResetConfirmView.as_view(
             template_name='registration/password_reset_confirm.html'), 
         name="password_reset_confirm"),
-	path('accounts/password/complete/',
+    path('accounts/password/complete/',
         PasswordResetCompleteView.as_view(
             template_name='registration/password_reset_complete.html'),
         name="password_reset_complete"),

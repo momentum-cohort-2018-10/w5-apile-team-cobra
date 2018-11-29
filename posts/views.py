@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from posts.models import Post, Vote
 
+
 # Create your views here.
 def index(request):
     '''
