@@ -16,5 +16,5 @@ def comment_detail(request, id):
     """
     This shows all the comments
     """
-    comments = Comment.objects.get(id=id)
-    return render(request, 'comment/comment_detail.html', {'comments': comments})
+    comment = Comment.objects.get(id=id)
+    return render(request, 'comment/comment_detail.html', {'comment': comment})
