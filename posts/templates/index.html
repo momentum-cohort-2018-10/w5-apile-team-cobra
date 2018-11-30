@@ -10,7 +10,11 @@
     <div>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
-            <button>vote</button>
+            <h2><a href="{% url 'comment_detail' id=post.id %}">
+                    Comment
+                </a>
+            </h2>
+            
         {% endfor %}
     </div>
 {% endblock content %}
