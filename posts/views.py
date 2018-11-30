@@ -22,6 +22,6 @@ def user_vote(request, id):
     # make an instance of the vote based on the post id
     post = Post.objects.get(pk=id)
     # add one to score using query expression
-    post.score = F('score') + 1
+    post.score = F('score') + 1 
     post.save()
     return redirect('home')
