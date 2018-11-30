@@ -8,7 +8,9 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     post_link = models.URLField(max_length=255)
     user = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=True)
-    user_has_voted = models.ManyToManyField(to=User, through='Vote', related_name='user_vote')
+    voted_users = models.ManyToManyField(
+        to=User, through='Vote',
+        related_name='user_votes')
     score = models.IntegerField(default=0)
 
     def __str__(self):
@@ -19,8 +21,17 @@ class Vote(models.Model):
     '''
     vote on post
     '''
-    voter = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="vote")
-    post = models.ForeignKey(to=Post, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(
+        to=User, on_delete=models.CASCADE,
+        related_name="vote")
+    post = models.ForeignKey(
+        to=Post, on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        unique_together = (
+            'user',
+            'post',
+        )
 
 
 class Comment(models.Model):
@@ -33,4 +44,5 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        return self.user
         return self.body
