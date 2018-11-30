@@ -11,7 +11,7 @@
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
             <p>current score: {{ post.score }}</p>
-            <form method="POST" action="{% url 'user_vote' post_id=post.od %}">
+            <form method="POST" action="{% url 'user_vote' id=post.pk %}">
                 {% csrf_token %}
                 <button type="submit">vote</button>
             </form>

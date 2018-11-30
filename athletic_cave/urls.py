@@ -32,7 +32,7 @@ urlpatterns = [
         name="password_reset_complete"),
 
     # vote url
-    path('posts/<post.id>/vote', views.user_vote, name="user_vote"),
+    path('posts/<int:id>/vote', views.user_vote, name="user_vote"),
 
     # index url
     path('', views.index, name='home'),
