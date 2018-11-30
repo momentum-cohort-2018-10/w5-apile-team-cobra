@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from posts.models import Post, Vote
 from django.views.decorators.http import require_POST
 from django.db.models import F
+from django.shortcuts import render
+from posts.models import Post, Vote, Comment
 
 
 # Create your views here.
@@ -25,3 +27,10 @@ def user_vote(request, id):
     post.score = F('score') + 1 
     post.save()
     return redirect('home')
+
+def comment_detail(request, id):
+    """
+    This shows all the comments
+    """
+    comment = Comment.objects.get(pk=id)
+    return render(request, 'comment/comment_detail.html', {'comment': comment})
