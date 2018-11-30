@@ -28,7 +28,7 @@ class Comment(models.Model):
     adds coments to posts
     '''
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
