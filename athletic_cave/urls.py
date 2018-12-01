@@ -40,7 +40,7 @@ urlpatterns = [
     # vote url
     path('posts/<int:id>/vote', views.user_vote, name="user_vote"),
         # comment url
-    path('comments/<int:id>/', views.comment_detail, name='comment_detail'),
+    path('comments/<int:id>/', views.post_detail, name='post_detail'),
 
     # index url
     path('', views.index, name='home'),
