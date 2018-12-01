@@ -10,6 +10,13 @@
     <div>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
+            <p>current score: {{ post.vote_count }}</p>
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'user_vote' id=post.pk %}">
+                {% csrf_token %}
+                <button type="submit">vote</button>
+            </form>
+            {% endif %}
             <h2><a href="{% url 'comment_detail' id=post.id %}">
                     Comment
                 </a>
@@ -17,4 +24,5 @@
             
         {% endfor %}
     </div>
+
 {% endblock content %}

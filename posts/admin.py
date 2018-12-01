@@ -4,8 +4,11 @@ from posts.models import Post,Comment
 
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
+    '''
+    shows post fields in the admin
+    '''
     model = Post
-    list_display =('title', 'post_link')
+    list_display = ('title', 'post_link', 'user', 'score')
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'user', 'body', 'created')
