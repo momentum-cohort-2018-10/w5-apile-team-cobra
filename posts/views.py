@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from posts.models import Post, Vote, Comment
 from posts.forms import CommentForm, PostForm
-from django.shortcuts import render, redirect
-from posts.models import Post, Vote
 from django.views.decorators.http import require_POST
 from django.db.models import F, Count
-from django.shortcuts import render
-from posts.models import Post, Vote, Comment
 from django.contrib.auth.views import login_required
 
 
@@ -17,7 +13,7 @@ def index(request):
     '''
     posts = Post.objects.all().order_by('-score').annotate(vote_count=Count('voted_users'))
     # the score should be the number of voted_users in post
-    score = posts
+    # score = posts
     return render(request, 'index.html', {
         'posts': posts,
     })
