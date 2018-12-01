@@ -5,15 +5,16 @@
 {% endblock title %}
 
 {% block content %}
-    <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
-    <h1>Athletic Cave</h1>
     <div>
+        <a href="{% url 'add_post' %}">
+        Add a post!
+    </a>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
-            <h2><a href="{% url 'comment_detail' id=post.id %}">
-                    Comment
+            <h3><a href="{% url 'post_detail' id=post.id %}">
+                    <button>Comment</button>
                 </a>
-            </h2>
+            </h3>
             
         {% endfor %}
     </div>
