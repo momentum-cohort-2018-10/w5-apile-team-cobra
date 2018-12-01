@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from posts.models import Post, Vote, Comment
 from posts.forms import CommentForm, PostForm
-=======
 from django.shortcuts import render, redirect
 from posts.models import Post, Vote
 from django.views.decorators.http import require_POST
@@ -10,7 +8,6 @@ from django.db.models import F, Count
 from django.shortcuts import render
 from posts.models import Post, Vote, Comment
 from django.contrib.auth.views import login_required
->>>>>>> master
 
 
 # Create your views here.
