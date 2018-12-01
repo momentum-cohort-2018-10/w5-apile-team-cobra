@@ -25,7 +25,7 @@ class Vote(models.Model):
         to=User, on_delete=models.CASCADE,
         related_name="vote")
     post = models.ForeignKey(
-        to=Post, on_delete=models.SET_NULL, null=True)
+        to=Post, on_delete=models.SET_NULL, null=True, related_name="votes")
 
     class Meta:
         unique_together = (

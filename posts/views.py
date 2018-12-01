@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from posts.models import Post, Vote
 from django.views.decorators.http import require_POST
-from django.db.models import F
+from django.db.models import F, Count
 from django.shortcuts import render
 from posts.models import Post, Vote, Comment
 from django.contrib.auth.views import login_required
@@ -12,7 +12,9 @@ def index(request):
     '''
     render posts on home page
     '''
-    posts = Post.objects.all().order_by('-score')
+    posts = Post.objects.all().order_by('-score').annotate(vote_count=Count('voted_users'))
+    # the score should be the number of voted_users in post
+    score = posts
     return render(request, 'index.html', {
         'posts': posts,
     })
@@ -25,15 +27,16 @@ def user_vote(request, id):
     '''
     # make an instance of the vote based on the post id
     post = Post.objects.get(pk=id)
-    # if the signed in use has already voted on the post
+    # if user has already voted on the post...
     if post in request.user.user_votes.all():
         #don't let them vote again
         pass
-    # other wise vote
+    # other wise add the voter to the posts voted_user
     else:  
         # add one to score using query expression
-        post.score = F('score') + 1 
-        post.save()
+        # post.score = F('score') + 1 
+        # post.save()
+        post.votes.create(user=request.user)
     return redirect('home')
 
 def comment_detail(request, id):
