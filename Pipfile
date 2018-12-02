@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 django-extensions = "*"
+mimesis = "*"
 
 [dev-packages]
 
