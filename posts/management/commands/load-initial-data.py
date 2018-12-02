@@ -8,7 +8,157 @@ intitial_posts = [
         "title": "test",
         "post_link": "www.google.com",
         "user": "test",
-    }
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
+    {
+        "title": "test",
+        "post_link": "www.google.com",
+        "user": "test",
+    },
 ]
 
 
@@ -17,15 +167,16 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         pass
-    # # not working yet
-    # def create_posts(self):
-    #     print("deleted posts")
-    #     Post.objects.all().delete()
 
-    #     print("created posts")
-    #     posts = []
+    # not working yet
+    def create_posts(self):
+        print("deleted posts")
+        Post.objects.all().delete()
 
-    #     for post_data in intitial_posts:
+        print("created posts")
+        posts = []
+
+        for post_data in intitial_posts:
 
     def create_users(self):
         from mimesis import Person
@@ -60,7 +211,6 @@ class Command(BaseCommand):
             num_votes = random.randint(0, 5)
             # shuffle the users
             random.shuffle(users)
-            post = Post.objects.all()
             for i in range(num_votes):
                 post.votes.create(user=users[i])
 
