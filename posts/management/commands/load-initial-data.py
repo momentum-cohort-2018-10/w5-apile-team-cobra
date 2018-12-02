@@ -17,6 +17,15 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         pass
+    # # not working yet
+    # def create_posts(self):
+    #     print("deleted posts")
+    #     Post.objects.all().delete()
+
+    #     print("created posts")
+    #     posts = []
+
+    #     for post_data in intitial_posts:
 
     def create_users(self):
         from mimesis import Person
@@ -40,17 +49,21 @@ class Command(BaseCommand):
             users.append(user)
         return users
 
-    # def create_posts(self):
-    #     print("deleted posts")
-    #     Post.objects.all().delete()
+    def create_votes(self, posts, users):
+        import random
 
-    #     print("created posts")
-    #     posts = []
+        print('votes deleted')
+        Vote.objects.all().delete()
 
-    #     for post_data in intitial_posts:
+        for post in posts:
+            # selecting a random number between 0 and 5
+            num_votes = random.randint(0, 5)
+            # shuffle the users
+            random.shuffle(users)
+            post = Post.objects.all()
+            for i in range(num_votes):
+                post.votes.create(user=users[i])
 
 
     def handle(self, *args, **options):
         users = self.create_users()
-        
-                

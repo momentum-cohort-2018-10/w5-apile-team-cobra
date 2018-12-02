@@ -8,7 +8,7 @@ class PostAdmin(admin.ModelAdmin):
     shows post fields in the admin
     '''
     model = Post
-    list_display = ('title', 'post_link', 'user', 'score')
+    list_display = ('title', 'post_link', 'user')
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'user', 'body', 'created')
