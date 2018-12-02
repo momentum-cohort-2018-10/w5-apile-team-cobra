@@ -108,3 +108,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         users = self.create_users()
         posts = self.create_posts()
+        votes = self.create_votes(posts, users)
