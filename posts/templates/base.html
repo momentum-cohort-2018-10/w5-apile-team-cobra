@@ -13,7 +13,12 @@
 </head>
 <body>
 <nav>
+    <div class="main_header">
+        <a href="{% url 'home' %}">
+            <h1>Athletic Cave</h1></a>
+    </div>
     <ul>
+        <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
         {% if user.is_authenticated %}
         <li>
         <a href="{% url 'auth_logout'%}">Logout</a>
