@@ -31,10 +31,16 @@ urlpatterns = [
             template_name='registration/password_reset_complete.html'),
         name="password_reset_complete"),
 
+    # comment url
+    path('comments/<int:id>/', views.post_detail, name='post_detail'),
+    # make comment url
+    path('comments/<int:id>/addcomment', views.add_comment, name='add_comment'),
+    # make post url
+    path('accounts/addpost/', views.add_post, name="add_post"),
     # vote url
     path('posts/<int:id>/vote', views.user_vote, name="user_vote"),
         # comment url
-    path('comments/<int:id>/', views.comment_detail, name='comment_detail'),
+    path('comments/<int:id>/', views.post_detail, name='post_detail'),
 
     # index url
     path('', views.index, name='home'),
