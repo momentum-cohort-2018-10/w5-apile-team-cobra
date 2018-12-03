@@ -34,6 +34,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # our apps
     'posts',
+
+    # third party apps
+    'django_extensions',
     
     # core apps
     'django.contrib.admin',
