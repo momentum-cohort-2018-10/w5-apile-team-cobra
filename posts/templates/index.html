@@ -7,12 +7,13 @@
 {% block content %}
     <div>
         <a href="{% url 'add_post' %}">
-        Add a post!
-    </a>
+        Add a post!</a>
         {% for post in posts %}
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
             <h3><a href="{% url 'post_detail' id=post.id %}">
-                    <button>Comment</button>
+                    <button>Comment</button></a></h3>
+            <h3><a href="{% url 'post_delete' id=post.id %}">
+                    <button>Delete</button></a></h3>
             <p>current score: {{ post.vote_count }}</p>
             {% if request.user.is_authenticated %}
             <form method="POST" action="{% url 'user_vote' id=post.pk %}">
@@ -20,10 +21,6 @@
                 <button type="submit">vote</button>
             </form>
             {% endif %}
-            <h2><a href="{% url 'post_detail' id=post.id %}">
-                    Comment
-                </a>
-            </h3>
             
         {% endfor %}
     </div>

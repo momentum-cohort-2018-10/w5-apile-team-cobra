@@ -39,9 +39,12 @@ urlpatterns = [
     path('accounts/addpost/', views.add_post, name="add_post"),
     # vote url
     path('posts/<int:id>/vote', views.user_vote, name="user_vote"),
-        # comment url
+    # comment url
     path('comments/<int:id>/', views.post_detail, name='post_detail'),
-
+    # delete post url
+    path('posts/<int:id>/remove', views.post_delete, name='post_delete'),
+    # delete comment url
+    path('comment/<int:id>/remove', views.comment_delete, name='comment_delete'),
     # index url
     path('', views.index, name='home'),
 
