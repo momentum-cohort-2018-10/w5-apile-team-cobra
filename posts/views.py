@@ -45,9 +45,11 @@ def post_detail(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'comment/post_detail.html', {'post': post})
 
-
+@login_required
 def add_comment(request, id):
     post = get_object_or_404(Post, id=id)
+    comments = Comment.objects.all().order_by('created')
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -55,6 +57,7 @@ def add_comment(request, id):
             comment.post = post
             comment.save()
             return redirect('post_detail', id=post.id)
+            return render(request, 'comment/post_detail.html', {'comments': comments})
 
     else:
         form = CommentForm()
@@ -62,7 +65,7 @@ def add_comment(request, id):
         context = {'form': form}
         return render(request, template, context,)
 
-
+@login_required
 def add_post(request):
     form_class = PostForm
     if request.method == "POST":
@@ -76,3 +79,19 @@ def add_post(request):
     else:
         form = form_class()
         return render(request, 'post/add_post.html', {"form": form, })
+
+   
+@login_required
+def post_delete(request, id):
+    post = get_object_or_404(Post, id=id)
+    # if request.user == post.user:
+    post.delete()
+    return redirect('home')
+
+
+@login_required
+def comment_delete(request, id):
+    comment = Comment.objects.get(id=id)
+    post = comment.post
+    comment.delete()
+    return redirect('post_detail', id=post.id)

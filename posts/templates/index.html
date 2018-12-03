@@ -7,24 +7,22 @@
 {% block content %}
     <div>
         <a href="{% url 'add_post' %}">
-            <h3>Add a post!</h3>
-        </a>
-        
-            {% for post in posts %}
-            <div class="post">
-                <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
-                <h3><a href="{% url 'post_detail' id=post.id %}">
-                        <button>Comment</button>
-                <p>votes: {{ post.vote_count }}</p>
-                {% if request.user.is_authenticated %}
-                <form method="POST" action="{% url 'user_vote' id=post.pk %}">
-                    {% csrf_token %}
-                    <button type="submit">vote</button>
-                </form>
-                {% endif %}
-            </div>    
-            {% endfor %}
-        
+        Add a post!</a>
+        {% for post in posts %}
+            <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
+            <h3><a href="{% url 'post_detail' id=post.id %}">
+                    <button>Comment</button></a></h3>
+            <h3><a href="{% url 'post_delete' id=post.id %}">
+                    <button>Delete</button></a></h3>
+            <p>current score: {{ post.vote_count }}</p>
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'user_vote' id=post.pk %}">
+                {% csrf_token %}
+                <button type="submit">vote</button>
+            </form>
+            {% endif %}
+            
+        {% endfor %}
     </div>
 
 {% endblock content %}
