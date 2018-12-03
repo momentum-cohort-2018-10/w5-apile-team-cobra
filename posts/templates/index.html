@@ -14,7 +14,7 @@
             <div class="post">
                 <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
                 <h3><a href="{% url 'post_detail' id=post.id %}">
-                        <button>Comment</button>
+                        <button>Comment</button></a>
                 <p>votes: {{ post.vote_count }}</p>
                 {% if request.user.is_authenticated %}
                 <form method="POST" action="{% url 'user_vote' id=post.pk %}">

@@ -5,11 +5,19 @@ body {
 nav {
     display: grid;
     background-color: orangered;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto ;
     margin: -8px;
     padding: 8px;
 } 
+
+a:visited {
+  color: black;
+}
+
+#title {
+    font-size: 50px;
+}
 
 .register {
     text-align: right;
