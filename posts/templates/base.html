@@ -14,11 +14,12 @@
 <body>
     <nav>
         <div>
-            
             <a href="{% url 'home' %}">
                 <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
-                <h1>Athletic Cave</h1>
             </a>
+        </div>    
+        <div>
+            <a href="{% url 'home' %}"><h1 id='title' >Athletic Cave</h1></a>    
         </div>
         {% if user.is_authenticated %}
         <div class="register">
