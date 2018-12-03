@@ -1,0 +1,11 @@
+nav {
+    display: grid;
+    background-color: orange;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto ;
+} 
+
+.register {
+    text-align: right;
+    margin: 10px;
+}

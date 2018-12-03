@@ -13,14 +13,14 @@
             <h2><a href="{{ post.post_link }}">{{ post.title}}</a></h2>
             <h3><a href="{% url 'post_detail' id=post.id %}">
                     <button>Comment</button>
-            <p>current score: {{ post.vote_count }}</p>
+            <p>votes: {{ post.vote_count }}</p>
             {% if request.user.is_authenticated %}
             <form method="POST" action="{% url 'user_vote' id=post.pk %}">
                 {% csrf_token %}
                 <button type="submit">vote</button>
             </form>
             {% endif %}
-            <h2><a href="{% url 'post_detail' id=post.id %}">
+            <h3><a href="{% url 'post_detail' id=post.id %}">
                     Comment
                 </a>
             </h3>

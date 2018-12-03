@@ -12,26 +12,25 @@
         {% endblock header %}
 </head>
 <body>
-<nav>
-    <div class="main_header">
-        <a href="{% url 'home' %}">
-            <h1>Athletic Cave</h1></a>
-    </div>
-    <ul>
-        <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
+    <nav>
+        <div>
+            
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/noun-stack.png' %}" alt="Athetic Cave">
+                <h1>Athletic Cave</h1>
+            </a>
+        </div>
         {% if user.is_authenticated %}
-        <li>
-        <a href="{% url 'auth_logout'%}">Logout</a>
-        </li>
+        <div class="register">
+            <a href="{% url 'auth_logout'%}"><h2>Logout</h2></a>
+        </div>
         {% else %}
-        <li>
-        <a href="{% url 'auth_login'%}">Login</a>
-        </li>
-        <li>
-        <a href="{% url 'registration_register'%}">Register</a>
-        </li>
+        <div class="register">
+            <a href="{% url 'auth_login'%}"><h2>Login</h2></a>
+            <a href="{% url 'registration_register'%}"><h2>Register</h2></a>
+        </div>
         {% endif %}
-    </ul>
+     </nav>
         {% block content %}
         {% endblock content %}
         {% block footer %}
